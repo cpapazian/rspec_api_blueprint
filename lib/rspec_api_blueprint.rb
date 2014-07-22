@@ -25,7 +25,7 @@ RSpec.configure do |config|
   RESOURCE_GROUP = /Group\s(\w+)/
   ACTION_GROUP = /(GET|POST|PATCH|PUT|DELETE)\s(.+)$/
 
-  config.after(:each) do
+  config.after(:each, type: :request) do
     next if example.metadata[:docs] == false
     next if config.api_docs_whitelist && !example.metadata[:docs]
 
